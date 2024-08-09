@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll on the entire page */
+}
+
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.todo-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.todo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #00bf63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #009e52;
+}
+
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+/* Style for the todo container */
+.todos {
+    max-width: 600px;  /* Adjust to your preferred width */
+    margin: 0 auto;   /* Center the container */
+    padding: 5px;
+    background-color: #f9f9f9;  /* Light background color */
+    border-radius: 8px;  /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    max-height: 400px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Style for each todo item */
+.todos p {
+    padding: 10px 15px;
+    background-color: #ffffff;  /* White background for each todo */
+    border: 1px solid #ddd;  /* Light border */
+    border-radius: 4px;  /* Rounded corners */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;  /* Dark text color */
+}
+
+/* Optional: Add hover effect */
+.todos p:hover {
+    background-color: #f0f0f0;  /* Slightly darker background on hover */
+    cursor: pointer;  /* Change cursor to pointer */
+}
+
+/* Flexbox container with horizontal row layout */
+.top-container {
+    display: flex; /* Activate Flexbox */
+    flex-direction: row; /* Arrange items horizontally (default value) */
+    align-items: center; /* Align items vertically (optional) */
+    justify-content: space-between; /* Distribute items horizontally (optional) */
+
+    margin: 30px 0px;
+    
+    border-radius: 8px; /* Rounded corners (optional) */
+}
+
+/* Style for child items */
+.top-container > * {
+    margin: 0 10px; /* Margin between items (horizontal spacing) */
+}
+
+/* Style for the Clear All button */
+.clear-all {
+    background-color: #ff4c4c; /* Bright red background */
+    color: #fff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Add padding for size */
+    font-size: 16px; /* Adjust font size */
+    font-weight: 300; /* Make text bold */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and scale effect */
+}
+
+.clear-all:hover {
+    background-color: #e04343; /* Slightly darker red on hover */
+}
+
+.clear-all:active {
+    transform: scale(0.95); /* Slightly shrink the button on click */
+}
+
+.empty-message {
+    color: #888; /* Light grey color for the message */
+    font-style: italic; /* Italicize the message */
+    text-align: center; /* Center align the text */
+    padding: 20px; /* Add padding for spacing */
+}
+
+/* Container for the todo items */
+.todo-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between todo items */
+}
+
+/* Style for each todo item */
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between task and delete button */
+    padding: 10px;
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* Light background color */
+    margin: 10px 0;
+}
+
+
+
+/* styles.css */
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+}
+
+.tab-button.active {
+    background-color: #00bf63; /* or another color to indicate active tab */
+    color: white;
+    border-color: #00bf63;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* styles.css */
+
+
+.check-button,
+.delete-button {
+    background-color: #f0f0f0; /* Light background color */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.check-button i,
+.delete-button i,
+.edit-button i {
+    font-size: 16px; /* Adjust size as needed */
+}
+
+.check-button:hover,
+.delete-button:hover,
+.edit-button {
+    background-color: #e0e0e0; /* Slightly darker background on hover */
+}
+
+
+.delete-button, .check-button, .edit-button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.delete-button {
+    background-color: #d9534f; /* Red color for the delete button */
+}
+
+.delete-button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+.check-button {
+    background-color: #5cb85c; /* Green color for the check button */
+}
+
+.check-button:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+}
+
+.edit-button {
+    background-color: #f0ad4e; /* Orange color for the edit button */
+}
+
+.edit-button:hover {
+    background-color: #ec971f; /* Darker orange on hover */
+}
+
+.delete-button i, .check-button i, .edit-button i {
+    pointer-events: none; /* Ensures the icon doesn't interfere with the button click */
+}
+
+.edit-button:hover {
+    background-color: #ec971f; /* Darker orange on hover */
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+/* General button styling */
+.button-container button {
+    
+    border: none; /* Remove borders */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px 12px; /* Spacing around the text */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 0 4px; /* Space between buttons */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+/* Undo button specific styling */
+.return-button {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark text color */
+}
+
+.return-button:hover {
+    background-color: #ddd; /* Slightly darker grey on hover */
+}
+
+.return-button:active {
+    background-color: #ccc; /* Even darker grey on click */
+}
+
+/* Additional button styles if needed */
+.button-container button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Custom focus outline */
+}
+
+/* Container for todo items */
+.todo-inside-container {
+    max-width: 100%; /* Ensure the container does not exceed the screen width */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+/* Style for the todo item container */
+/* Styling for the todo container */
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc; /* Border around the todo item */
+    margin-bottom: 5px;
+    width: 465px;
+    
+    overflow: hidden; /* Hide overflow text */
+    position: relative; /* For positioning the scroll area */
+}
+
+.todo-text {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100%; /* Ensure it doesn’t exceed the container */
+    width: calc(100% - 60px); /* Adjust width to account for buttons */
+    word-wrap: break-word; /* Break long words */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
