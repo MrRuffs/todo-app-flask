@@ -8,11 +8,27 @@ requirements.txt file to install all libraries.
 ENTER COMMAND TERMINAL:
 pip install -r requirements.txt
 
+Activating venv command: **source todoapp/bin/activate**
+
+To deactivate: **deactivate**
+
+You will also have to set up the python server with command **python app.py**
+In a new terminal, you will also need to install serve
+_brew install serve_
+
+Then **cd client** and type the command: **serve**
+
 Contains:
 
 flask
 pymongo
 flask-cors
+
+
+
+
+
+
 
 
 Python 3.9.19
